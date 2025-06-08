@@ -1,0 +1,25 @@
+# Etapa 1: build
+FROM node:20 AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN npm install
+RUN npm run build
+
+# Etapa 2: produção
+FROM node:20
+
+# Instala servidor HTTP simples
+RUN npm install -g serve
+
+WORKDIR /app
+
+# Copia só os arquivos de build
+COPY --from=builder /app/dist ./dist
+
+EXPOSE 5173
+
+# Serve o build da pasta dist
+CMD ["serve", "dist", "-l", "5173"]

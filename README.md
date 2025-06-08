@@ -8,36 +8,15 @@ Este projeto é uma aplicação "Play-Spotify", demonstrando a integração de u
 
 ## Como Rodar Localmente
 
-### Frontend
-
 Para iniciar o frontend em seu ambiente local:
 
 1.  Navegue até o diretório: \Spotify-cloud2\aula 1\Gabarito aula 1
 2.  Instale as dependências:
-    bash
     npm i
     
 3.  Inicie o servidor de desenvolvimento:
-    bash
     npm run dev
     
-
-### Backend
-
-Para iniciar o backend em seu ambiente local:
-
-1.  Navegue até o diretório: \Play-Spotify\aula 1\Gabarito aula 1 (Este é o mesmo diretório do frontend no rascunho. *Por favor, verifique se o backend está realmente no mesmo diretório ou em um subdiretório diferente e ajuste o caminho conforme necessário.*)
-2.  Instale as dependências:
-    bash
-    npm i
-    
-3.  Inicie o servidor da API:
-    bash
-    node Api/server.js
-    
-
----
-
 ## Como Rodar com Docker
 
 ### Frontend (Docker)
@@ -82,7 +61,9 @@ Para orquestrar o frontend, backend e MongoDB juntos usando Docker Compose:
 3.  Para derrubar os serviços e remover os contêineres:
     bash
     docker compose down
-    
+
+4. (Se necessario) Apague os contêineres e volumes para garantir que o cache do node_modules não quebre de novo:
+   docker compose down --volumes --remove-orphans
 
 ---
 
